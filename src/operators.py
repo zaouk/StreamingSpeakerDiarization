@@ -2,7 +2,7 @@ import rx
 from rx import operators as ops
 from rx.core import Observable
 from dataclasses import dataclass
-from typing import Callable, Optional, List, Literal
+from typing import Callable, Optional, List
 import numpy as np
 from pyannote.core import Segment, SlidingWindow, SlidingWindowFeature
 import warnings
@@ -92,7 +92,7 @@ def aggregate(
     duration: float,
     step: float,
     latency: Optional[float] = None,
-    strategy: Literal["mean", "hamming", "any"] = "mean",
+    strategy: str = "mean",
 ):
     if latency is None:
         latency = step

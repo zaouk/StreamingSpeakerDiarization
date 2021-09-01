@@ -3,7 +3,7 @@ from rx.core import Observer
 from pyannote.core import Annotation, Segment, SlidingWindowFeature, notebook
 from pyannote.metrics.diarization import DiarizationErrorRate
 from pyannote.database.util import load_rttm
-from typing import Literal, Union, Text, Optional, Tuple
+from typing import Union, Text, Optional, Tuple
 from pathlib import Path
 from traceback import print_exc
 import matplotlib.pyplot as plt
@@ -16,7 +16,7 @@ class OutputBuilder(Observer):
         step: float,
         output_path: Optional[Union[Path, Text]] = None,
         merge_collar: float = 0.05,
-        visualization: Literal["slide", "accumulate"] = "slide",
+        visualization: str = "slide", #slide or accumulate
         reference: Optional[Union[Path, Text]] = None,
     ):
         super().__init__()
